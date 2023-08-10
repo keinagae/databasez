@@ -10,7 +10,8 @@ from starlette.responses import JSONResponse
 from starlette.testclient import TestClient
 from tests.test_databases import DATABASE_URLS
 
-from databasez import Database, DatabaseURL
+from databasez import DatabaseURL
+from databasez.testclient import DatabaseTestClient as Database
 
 metadata = sqlalchemy.MetaData()
 

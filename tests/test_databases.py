@@ -11,7 +11,8 @@ from urllib.parse import parse_qsl, urlsplit
 import pytest
 import sqlalchemy
 
-from databasez import Database, DatabaseURL
+from databasez import DatabaseURL
+from databasez.testclient import DatabaseTestClient as Database
 
 assert "TEST_DATABASE_URLS" in os.environ, "TEST_DATABASE_URLS is not set."
 
