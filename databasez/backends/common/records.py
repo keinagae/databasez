@@ -4,7 +4,6 @@ from sqlalchemy.engine.interfaces import Dialect
 from sqlalchemy.engine.row import Row as SQLRow
 from sqlalchemy.sql.compiler import _CompileLabel
 from sqlalchemy.sql.schema import Column
-from sqlalchemy.sql.sqltypes import JSON
 from sqlalchemy.types import TypeEngine
 
 from databasez.interfaces import Record as RecordInterface
@@ -61,12 +60,9 @@ class Record(RecordInterface):
         raw = self._row[idx]
         processor = datatype._cached_result_processor(self._dialect, None)
 
-        if self._dialect.name not in DIALECT_EXCLUDE:
-            if isinstance(datatype, JSON):
-                return raw
-
-        if processor is not None and isinstance(raw, (int, str, float)):
-            return processor(raw)
+        if self._dialect.name in DIALECT_EXCLUDE:
+            if processor is not None and isinstance(raw, (int, str, float)):
+                return processor(raw)
         return raw
 
     def __iter__(self) -> typing.Iterator:
