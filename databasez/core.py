@@ -67,6 +67,7 @@ class Database:
 
     SUPPORTED_BACKENDS = {
         "postgresql": "databasez.backends.postgres:PostgresBackend",
+        "cockroachdb": "databasez.backends.cockroach:CockroachBackend",
         "postgresql+aiopg": "databasez.backends.aiopg:AiopgBackend",
         "postgres": "databasez.backends.postgres:PostgresBackend",
         "mysql": "databasez.backends.mysql:MySQLBackend",
