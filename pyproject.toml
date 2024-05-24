@@ -106,7 +106,7 @@ asyncmy = ["asyncmy"]
 asyncpg = ["asyncpg"]
 mysql = ["aiomysql"]
 postgresql = ["asyncpg"]
-postgresql = ["asyncpg"]
+cockroachdb = ["asyncpg","sqlalchemy-cockroachdb"]
 sqlite = ["aiosqlite"]
 
 [tool.hatch.version]
